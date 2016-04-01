@@ -1,7 +1,7 @@
 # Kodi Media Center language file
 # Addon Name: VDR Configuration
 # Addon id: script.config.vdr
-# Addon Provider: OpenELEC
+# Addon Provider: LibreELEC
 msgid ""
 msgstr ""
 "Project-Id-Version: XBMC Addons\n"
