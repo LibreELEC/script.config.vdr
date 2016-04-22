@@ -429,7 +429,7 @@ class cWinDiSEqC(xbmcgui.WindowXMLDialog):
                     lStrLong = lStrLine[lIntSplitPos:].strip()
                     if len(lStrShort) >= 2 and len(lStrLong)>= 2:
                         self.lDicSatellites[lStrShort] = {'name':lStrLong,'index':lIntSatCount}
-                        ++lIntSatCount
+                        lIntSatCount = lIntSatCount + 1
         
     def fncAddListItem(self, lStrLabel, lStrEntry, lStrValue, lStrAction, lStrTyp, lStrInfoText="", lDicProperties={}):
         lLstItem = xbmcgui.ListItem(label=lStrLabel)
