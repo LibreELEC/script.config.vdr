@@ -100,10 +100,6 @@ msgctxt "#32040"
 msgid "Scan Scrambled Channels"
 msgstr "Balayage Chaînes Cryptées"
 
-msgctxt "#32041"
-msgid "Scan HD Channels"
-msgstr "Balayage Chaînes HD"
-
 msgctxt "#32042"
 msgid "Enabled"
 msgstr "Activé"
