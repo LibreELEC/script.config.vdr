@@ -9,36 +9,36 @@ msgstr ""
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Kodi Translation Team\n"
-"Language-Team: English (US) (http://www.transifex.com/projects/p/xbmc-addons/language/en_US/)\n"
+"Language-Team: Dutch (http://www.transifex.com/projects/p/xbmc-addons/language/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: en_US\n"
+"Language: nl\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgctxt "#32001"
 msgid "Loglevel 0"
-msgstr "Loglevel 0"
+msgstr "Logniveau 0"
 
 msgctxt "#32002"
 msgid "Loglevel 1"
-msgstr "Loglevel 1"
+msgstr "Logniveau 1"
 
 msgctxt "#32003"
 msgid "Loglevel 2"
-msgstr "Loglevel 2"
+msgstr "Logniveau 2"
 
 msgctxt "#32004"
 msgid "Loglevel 3 (Default)"
-msgstr "Loglevel 3 (Default)"
+msgstr "Logniveau 3 (standaard)"
 
 msgctxt "#32005"
 msgid "Loglevel 4"
-msgstr "Loglevel 4"
+msgstr "Logniveau 4"
 
 msgctxt "#32006"
 msgid "Loglevel 5"
-msgstr "Loglevel 5"
+msgstr "Logniveau 5"
 
 msgctxt "#32007"
 msgid "DVB-T"
@@ -54,11 +54,11 @@ msgstr "DVB-S/S2"
 
 msgctxt "#32010"
 msgid "PVRINPUT"
-msgstr "PVRINPUT"
+msgstr "PVRINVOER"
 
 msgctxt "#32011"
 msgid "PVRINPUT(FM Radio)"
-msgstr "PVRINPUT(FM Radio)"
+msgstr "PVRinvoer(FM Radio)"
 
 msgctxt "#32012"
 msgid "ATSC"
@@ -70,11 +70,11 @@ msgstr "TRANSPONDER"
 
 msgctxt "#32014"
 msgid "AUTO/OFF"
-msgstr "AUTO/OFF"
+msgstr "AUTO/UIT"
 
 msgctxt "#32015"
 msgid "AUTO/ON"
-msgstr "AUTO/ON"
+msgstr "AUTO/AAN"
 
 msgctxt "#32016"
 msgid "AUTO"
@@ -82,7 +82,7 @@ msgstr "AUTO"
 
 msgctxt "#32017"
 msgid "ALL"
-msgstr "ALL"
+msgstr "ALLE"
 
 msgctxt "#32018"
 msgid "QAM64"
@@ -110,47 +110,47 @@ msgstr "VSB+QAM"
 
 msgctxt "#32024"
 msgid "Loglevel"
-msgstr "Loglevel"
+msgstr "Logniveau"
 
 msgctxt "#32025"
 msgid "Tuner Type"
-msgstr "Tuner Type"
+msgstr "Tuner type"
 
 msgctxt "#32026"
 msgid "DVB-T Inversion"
-msgstr "DVB-T Inversion"
+msgstr "DVB-T inversie"
 
 msgctxt "#32027"
 msgid "Symbolrate"
-msgstr "Symbol rate"
+msgstr "Symboolwaarde"
 
 msgctxt "#32028"
 msgid "Modulation"
-msgstr "Modulation"
+msgstr "Modulatie"
 
 msgctxt "#32029"
 msgid "ATSC Typ"
-msgstr "ATSC Typ"
+msgstr "ATSC type"
 
 msgctxt "#32030"
 msgid "Country"
-msgstr "Country"
+msgstr "Land"
 
 msgctxt "#32031"
 msgid "Satellit"
-msgstr "Satellite"
+msgstr "Satelliet"
 
 msgctxt "#32032"
 msgid "LogType"
-msgstr "LogType"
+msgstr "Logtype"
 
 msgctxt "#32033"
 msgid "OFF"
-msgstr "OFF"
+msgstr "UIT"
 
 msgctxt "#32034"
 msgid "STDOUT"
-msgstr "STDOUT"
+msgstr "STDUIT"
 
 msgctxt "#32035"
 msgid "SYSLOG"
@@ -158,31 +158,35 @@ msgstr "SYSLOG"
 
 msgctxt "#32036"
 msgid "Settings"
-msgstr "Settings"
+msgstr "Instellingen"
 
 msgctxt "#32037"
 msgid "Scan TV Channels"
-msgstr "Scan TV Channels"
+msgstr "Scan TV kanalen"
 
 msgctxt "#32038"
 msgid "Scan Radio Channels"
-msgstr "Scan Radio Channels"
+msgstr "Scan Radio kanalen"
 
 msgctxt "#32039"
 msgid "Scan Free Channels"
-msgstr "Scan Free Channels"
+msgstr "Scan vrije kanalen"
 
 msgctxt "#32040"
 msgid "Scan Scrambled Channels"
-msgstr "Scan Scrambled Channels"
+msgstr "Scan vervormde kanalen"
+
+msgctxt "#32041"
+msgid "Scan HD Channels"
+msgstr "Scan HD kanalen"
 
 msgctxt "#32042"
 msgid "Enabled"
-msgstr "Enabled"
+msgstr "Geactiveerd"
 
 msgctxt "#32043"
 msgid "Disabled"
-msgstr "Disabled"
+msgstr "Uitgeschakeld"
 
 msgctxt "#32044"
 msgid "Start"
@@ -190,11 +194,11 @@ msgstr "Start"
 
 msgctxt "#32045"
 msgid "Abort"
-msgstr "Abort"
+msgstr "annuleren"
 
 msgctxt "#32046"
 msgid "Channelscann"
-msgstr "Channel scan"
+msgstr "Kanalenscan"
 
 msgctxt "#32047"
 msgid "Tuner"
@@ -206,11 +210,11 @@ msgstr "Freq"
 
 msgctxt "#32049"
 msgid "Channels"
-msgstr "Channels"
+msgstr "Kanalen"
 
 msgctxt "#32050"
 msgid "New Channels"
-msgstr "New Channels"
+msgstr "Nieuwe kanalen"
 
 msgctxt "#32051"
 msgid "VDR Host"
@@ -218,71 +222,71 @@ msgstr "VDR Host"
 
 msgctxt "#32052"
 msgid "Restfull API Port"
-msgstr "Restfull API Port"
+msgstr "Rustgevende API poort"
 
 msgctxt "#32053"
 msgid "VDR Wirbelscan Control"
-msgstr "VDR Wirbelscan Control"
+msgstr "VDR wirbelscan controle"
 
 msgctxt "#32054"
 msgid "DVB-C Inversion"
-msgstr "DVB-C Inversion"
+msgstr "DVB-C inversie"
 
 msgctxt "#32055"
 msgid "Close"
-msgstr "Close"
+msgstr "Sluiten"
 
 msgctxt "#32070"
 msgid "Single LNB"
-msgstr "Single LNB"
+msgstr "Enkele LNB"
 
 msgctxt "#32071"
 msgid "DiSEqC-1.0 Switch in Toneburst mode (2 Inputs)"
-msgstr "DiSEqC-1.0 Switch in Toneburst mode (2 Inputs)"
+msgstr "DiSEqC-1.0 schakel in Toneburst modus (2 invoeren)"
 
 msgctxt "#32072"
 msgid "DiSEqC-1.0 Switch (4 Inputs)"
-msgstr "DiSEqC-1.0 Switch (4 Inputs)"
+msgstr "DiSEqC-1.0 Schakel (4 invoeren)"
 
 msgctxt "#32073"
 msgid "DiSEqC-1.1 Switch (16 Inputs)"
-msgstr "DiSEqC-1.1 Switch (16 Inputs)"
+msgstr "DiSEqC-1.1 schakel (16 invoeren)"
 
 msgctxt "#32074"
 msgid "DiSEqC-1.2 Positioning System"
-msgstr "DiSEqC-1.2 Positioning System"
+msgstr "DiSEqC-1.2 positionering syteem"
 
 msgctxt "#32075"
 msgid "Advanced (Cascaded)"
-msgstr "Advanced (Cascaded)"
+msgstr "geavanceerd (stappen)"
 
 msgctxt "#32076"
 msgid "Disabled"
-msgstr "Disabled"
+msgstr "Uitgeschakeld"
 
 msgctxt "#32077"
 msgid "DiSEqC Configuration"
-msgstr "DiSEqC Configuration"
+msgstr "DiSEqC configuratie"
 
 msgctxt "#32078"
 msgid "DiSEqC Mode / Version"
-msgstr "DiSEqC Mode / Version"
+msgstr "DiSEqC Modus / Versie"
 
 msgctxt "#32079"
 msgid "DiSEqC Port's"
-msgstr "DiSEqC Port's"
+msgstr "DiSEqC poorten"
 
 msgctxt "#32080"
 msgid "Input"
-msgstr "Input"
+msgstr "invoer"
 
 msgctxt "#32081"
 msgid "unused"
-msgstr "unused"
+msgstr "Niet-gebruikt"
 
 msgctxt "#32082"
 msgid "used"
-msgstr "used"
+msgstr "Gebruik"
 
 msgctxt "#32100"
 msgid "5150MHz C Band LNBF"
@@ -322,59 +326,59 @@ msgstr "9750/10750MHz Ku Band LNBF"
 
 msgctxt "#32109"
 msgid "User-defined LNBF LO frequency"
-msgstr "User-defined LNBF LO frequency"
+msgstr "gebruiker- gedefinieerde LNBF LO frequentie"
 
 msgctxt "#32110"
 msgid "Single"
-msgstr "Single"
+msgstr "Enkele"
 
 msgctxt "#32111"
 msgid "Dual"
-msgstr "Dual"
+msgstr "Dubbele"
 
 msgctxt "#32112"
 msgid "Linear"
-msgstr "Linear"
+msgstr "Lineair"
 
 msgctxt "#32113"
 msgid "Circular"
-msgstr "Circular"
+msgstr "Circulair"
 
 msgctxt "#32114"
 msgid "DiSEqC Configuration"
-msgstr "DiSEqC Configuration"
+msgstr "DiSEqC configuratie"
 
 msgctxt "#32115"
 msgid "Mode / Version"
-msgstr "Mode / Version"
+msgstr "Modus / Versie"
 
 msgctxt "#32117"
 msgid "Dual LNBF includes 0/22KHZ switch, also be used to switch between two different single LNBF."
-msgstr "Dual LNBF includes 0/22KHZ switch, also used to switch between two different single LNBF."
+msgstr "dubbele LNBF behoudt een 0./22KHZ schakel, Wordt eveneens gebruikt om te schakelen tussen twee verschillende enkele LNBF."
 
 msgctxt "#32118"
 msgid "Also be called MiniDiSEqC,switch A & B two different LNB and different from the 0/22K switch."
-msgstr "Also called MiniDiSEqC, switch A & B two different LNB and different from the 0/22K switch."
+msgstr "Wordt ook wel MiniDiSEqc genoemd, schakel A & N twee verschillende LNB en anders dan de 0/22K schakel."
 
 msgctxt "#32119"
 msgid "Allow switching between up to 4 committed LNB's(4x1 DiSEqC Switch)"
-msgstr "Allow switching between up to 4 committed LNBs (4x1 DiSEqC Switch)"
+msgstr "toestaan schakelen tot 4 verschillende toegewijde LNB's(4x1 DiSEqC schakel)"
 
 msgctxt "#32120"
 msgid "Allow switching between up to 16 Uncommitted LNB's(8x1,10x1,12x1,16x1 DiSEqC Switch)"
-msgstr "Allow switching between up to 16 Uncommitted LNBs (8x1,10x1,12x1,16x1 DiSEqC Switch)"
+msgstr "toestaan schakelen tot 16 verschillende niet-toegewijde LNB's(8x1,10x1,12x1,16x1 DiSEqC schakel)"
 
 msgctxt "#32121"
 msgid "Allow switching between up to 16 LNB's, and control of a single axis satellite motor"
-msgstr "Allow switching between up to 16 LNBs, and control of a single axis satellite motor"
+msgstr "Toestaan schakelen tot 16 LNB's, en controle van een enkele assige satelliet motor"
 
 msgctxt "#32122"
 msgid "Individual configuration for complex environments like cascaded Toneburst / DiSEqC switches an positioning systems."
-msgstr "Individual configuration for complex environments like cascaded Toneburst / DiSEqC switches an positioning systems."
+msgstr "Individuele configurate voor complexe milieu`s zoals gestapelde Toneburst / DiSEqC schakels en positioneringssystemen."
 
 msgctxt "#32123"
 msgid "Satellit"
-msgstr "Satellite"
+msgstr "Satelliet"
 
 msgctxt "#32124"
 msgid "LNB Type"
@@ -382,7 +386,7 @@ msgstr "LNB Type"
 
 msgctxt "#32125"
 msgid "Sat"
-msgstr "Sat"
+msgstr "Za"
 
 msgctxt "#32126"
 msgid "Type"
@@ -390,23 +394,23 @@ msgstr "Type"
 
 msgctxt "#32127"
 msgid "None"
-msgstr "None"
+msgstr "Geen"
 
 msgctxt "#32128"
 msgid "Specify the satellite for this LNBF.If the satellite you want to select is not in this list, you should first patch for your sources.conf."
-msgstr "Specify the satellite for this LNBF. If the satellite you want to select is not on this list, you should first patch your sources.conf."
+msgstr "Specificeer de satelliet voor deze LNBF. Als de setalliet die je wilt selecteren niet in deze lijst staat, zal je eerst je sources.conf. moeten patchen."
 
 msgctxt "#32129"
 msgid "Select LNBF LO frequency.There are two different ways that a satellite can broadcast its signal.If linear,it broadcasts Horizontal and Vertical.If circular, it broadcasts Right Circular and Left Circular. "
-msgstr "Select LNBF LO frequency. There are two different ways that a satellite can broadcast its signal. If linear, it broadcasts Horizontal and Vertical. If circular, it broadcasts Right Circular and Left Circular."
+msgstr "Selecteer de LNBF LO frequentie. er zijn twee verschillende wegen hoe een satelliet zijn signaal kan uitzenden. indien lineair, zend het horizontaal en verticaal. indien circulair, zend het rechts circulair en links circulair."
 
 msgctxt "#32130"
 msgid "LnbFrequLo"
-msgstr "LnbFrequLo"
+msgstr "LnbFrequLaag"
 
 msgctxt "#32131"
 msgid "LnbFrequHi"
-msgstr "LnbFrequHi"
+msgstr "LnbFrequHoog"
 
 msgctxt "#32132"
 msgid "LnbSLOF"
@@ -414,152 +418,152 @@ msgstr "LnbSLOF"
 
 msgctxt "#32133"
 msgid "LnbPolar"
-msgstr "LnbPolar"
+msgstr "LnbPolair "
 
 msgctxt "#32134"
 msgid "Satellite"
-msgstr "Satellite"
+msgstr "Satelliet"
 
 msgctxt "#32135"
 msgid "Save"
-msgstr "Save"
+msgstr "Opslaan"
 
 msgctxt "#32136"
 msgid "Back"
-msgstr "Back"
+msgstr "Terug"
 
 msgctxt "#32137"
 msgid "First DiSEqC Port"
-msgstr "First DiSEqC Port"
+msgstr "Eerste DiSEqC Poort"
 
 msgctxt "#32138"
 msgid "Second DiSEqC Port"
-msgstr "Second DiSEqC Port"
+msgstr "tweede DiSEqC Poort"
 
 msgctxt "#32139"
 msgid "Tone 22khz Off (Lowband)"
-msgstr "Tone 22kHz Off (Lowband)"
+msgstr "Toon 22khz uit (Lage band)"
 
 msgctxt "#32140"
 msgid "Tone 22khz On (Highband)"
-msgstr "Tone 22kHz On (Highband)"
+msgstr "Toon 22khz aan (Hoge band)"
 
 msgctxt "#32141"
 msgid "Wait"
-msgstr "Wait"
+msgstr "Wachten"
 
 msgctxt "#32142"
 msgid "Port"
-msgstr "Port"
+msgstr "Poort"
 
 msgctxt "#32143"
 msgid "Select first DiSEqC Port"
-msgstr "Select first DiSEqC Port"
+msgstr "Selecteer eerste DiSEqC Poort"
 
 msgctxt "#32144"
 msgid "Select second DiSEqC Port"
-msgstr "Select second DiSEqC Port"
+msgstr "Selecteer tweede DiSEqC poort"
 
 msgctxt "#32145"
 msgid "Set wait Time"
-msgstr "Set wait time"
+msgstr "Instellen wachttijd"
 
 msgctxt "#32146"
 msgid "Cleanup all"
-msgstr "Cleanup all"
+msgstr "Opruimen alles"
 
 msgctxt "#32147"
 msgid "DiSEqC disabled"
-msgstr "DiSEqC disabled"
+msgstr "DiSEqC Gedeactiveerd"
 
 msgctxt "#32148"
 msgid "Set Switch Port"
-msgstr "Set Switch Port"
+msgstr "Instellen schakel poort"
 
 msgctxt "#32149"
 msgid "Set Position"
-msgstr "Set Position"
+msgstr "instellen positie"
 
 msgctxt "#32150"
 msgid "Select Command Type"
-msgstr "Select Command Type"
+msgstr "Selecteer commando type"
 
 msgctxt "#32151"
 msgid "Delete Command"
-msgstr "Delete Command"
+msgstr "Verwijder commando"
 
 msgctxt "#32152"
 msgid "Add Command"
-msgstr "Add Command"
+msgstr "Toevoegen commando"
 
 msgctxt "#32153"
 msgid "Select Stored Position 1...255"
-msgstr "Select Stored Position 1...255"
+msgstr "Selecteer opgeslagen positie 1...255"
 
 msgctxt "#32154"
 msgid "Add a Command to send by DiSEqC on selected LNB"
-msgstr "Add a Command to send by DiSEqC on selected LNB"
+msgstr "Voeg een commando toe te verzenden door DiSEqC op geselecteerd LNB"
 
 msgctxt "#32155"
 msgid "Position"
-msgstr "Position"
+msgstr "Positie"
 
 msgctxt "#32156"
 msgid "Ports"
-msgstr "Ports"
+msgstr "Poorten"
 
 msgctxt "#32157"
 msgid "Positions"
-msgstr "Positions"
+msgstr "Posities"
 
 msgctxt "#32158"
 msgid "Settings"
-msgstr "Settings"
+msgstr "Instellingen"
 
 msgctxt "#32159"
 msgid "Set stored Position"
-msgstr "Set stored Position"
+msgstr "Instellen opgeslagen Positie"
 
 msgctxt "#32160"
 msgid "Configuration Sequences"
-msgstr "Configuration Sequences"
+msgstr "Configuratie volgorden"
 
 msgctxt "#32161"
 msgid "Sequence"
-msgstr "Sequence"
+msgstr "Volgorden"
 
 msgctxt "#32300"
 msgid "Select Configuration Option"
-msgstr "Select Configuration Option"
+msgstr "Selecteer configuratie optie"
 
 msgctxt "#32301"
 msgid "Channel scanner Configuration"
-msgstr "Channel scanner Configuration"
+msgstr "Kanaal scanner configuratie"
 
 msgctxt "#32302"
 msgid "DiSEqC Configuration"
-msgstr "DiSEqC Configuration"
+msgstr "DiSEqC configuratie"
 
 msgctxt "#32303"
 msgid "Assign Tuner"
-msgstr "Assign Tuner"
+msgstr "Toewijzen Tuner"
 
 msgctxt "#32304"
 msgid "(Optional) Assign the configuration to a Tuner specified by number. Multiple Tuners can be selected seperated by simple space. Example: 1 2"
-msgstr "(Optional) Assign the configuration to a Tuner specified by number. Multiple Tuners can be selected separated by simple space. Example: 1 2"
+msgstr "(optioneel) toewijzen de configuratie naar een Tuner gespecificeerd via nummer. meerdere Tuners kunnen worden geselecteerd gedeeld gemakkelijk door spatie. bijvoorbeeld: 1 2"
 
 msgctxt "#32305"
 msgid "Set Position (USALS)"
-msgstr "Set Position (USALS)"
+msgstr "Instellen positie (USALS)"
 
 msgctxt "#32306"
 msgid "Longitude"
-msgstr "Longitude"
+msgstr "Breedtegraad"
 
 msgctxt "#32307"
 msgid "Latitude"
-msgstr "Latitude"
+msgstr "Lengtegraad"
 
 msgctxt "#32308"
 msgid "Sat Position"
-msgstr "Sat Position"
+msgstr "Satellietpositie"

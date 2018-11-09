@@ -64,6 +64,10 @@ msgctxt "#32039"
 msgid "Scan Free Channels"
 msgstr "搜索免费频道"
 
+msgctxt "#32041"
+msgid "Scan HD Channels"
+msgstr "搜索高清频道"
+
 msgctxt "#32042"
 msgid "Enabled"
 msgstr "启用"
