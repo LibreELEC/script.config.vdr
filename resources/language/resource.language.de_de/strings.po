@@ -176,10 +176,6 @@ msgctxt "#32040"
 msgid "Scan Scrambled Channels"
 msgstr "Verschlüsselte Sender suchen"
 
-msgctxt "#32041"
-msgid "Scan HD Channels"
-msgstr "HD-Sender suchen"
-
 msgctxt "#32042"
 msgid "Enabled"
 msgstr "Aktiviert"

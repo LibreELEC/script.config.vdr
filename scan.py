@@ -329,13 +329,6 @@ class cWinMain(xbmcgui.WindowXMLDialog):
             lStrFlagState = _(32043)
             lIntFlagState = "0"
         self.fncAddListItem(_(32040), "3", lIntFlagState, "fncSetConfig", "bool")
-        if self.lDicConfig['scanflags'] & 16 == 16: 
-            lStrFlagState = _(32042)
-            lIntFlagState = "1"
-        else:
-            lStrFlagState = _(32043)
-            lIntFlagState = "0"
-        self.fncAddListItem(_(32041), "4", lIntFlagState, "fncSetConfig", "bool")
         
     def fncConfigSubMenu(self, lStrConfig, lStrValue, lStrTyp):
         self.lIntSelectedItem = self.getControl(1000).getSelectedPosition()
