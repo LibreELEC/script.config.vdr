@@ -12,7 +12,7 @@
             <animation type="WindowClose" reversible="false">
                 <effect type="zoom" start="100" end="80" center="640,360" easing="in" tween="back" time="300" />
                 <effect type="fade" start="100" end="0" time="300" />
-            </animation>		
+            </animation>
             <control type="image">
                 <left>0</left>
                 <top>0</top>
@@ -26,7 +26,7 @@
                 <width>800</width>
                 <height>600</height>
                 <texture border="15">ContentPanel.png</texture>
-            </control>			
+            </control>
             <control type="button">
                 <description>Close Window button</description>
                 <left>730</left>
@@ -43,7 +43,7 @@
                 <onup>1</onup>
                 <ondown>1</ondown>
                 <visible>system.getbool(input.enablemouse)</visible>
-            </control>	
+            </control>
             <control type="image">
                 <left>5</left>
                 <top>6</top>
@@ -75,7 +75,7 @@
 				<onup>1001</onup>
 				<itemlayout height="40" width="780">
 					<control type="group">
-						<visible>StringCompare(ListItem.Property(typ), separator)</visible>
+						<visible>String.IsEqual(ListItem.Property(typ), separator)</visible>
 						<control type="image">
 							<left>0</left>
 							<top>36</top>
@@ -92,16 +92,16 @@
 							<textcolor>blue</textcolor>
 							<info>$INFO[ListItem.Label]</info>
 						</control>
-					</control>	
+					</control>
 					<control type="group">
-						<visible>!StringCompare(ListItem.Property(typ), separator)</visible>	
+						<visible>!String.IsEqual(ListItem.Property(typ), separator)</visible>
 						<control type="image">
 							<left>0</left>
 							<top>0</top>
 							<width>780</width>
 							<height>40</height>
 							<texture border="5">MenuItemNF.png</texture>
-						</control>							
+						</control>
 						<control type="label">
 							<left>20</left>
 							<top>0</top>
@@ -111,9 +111,9 @@
 							<align>left</align>
 							<aligny>center</aligny>
 							<label>$INFO[ListItem.Label]</label>
-						</control>							
+						</control>
 						<control type="group">
-							<visible>StringCompare(ListItem.Property(typ), list)</visible>				
+							<visible>String.IsEqual(ListItem.Property(typ), list)</visible>
 							<control type="label">
 								<left>390</left>
 								<top>0</top>
@@ -126,7 +126,7 @@
 							</control>
 						</control>
 						<control type="group">
-							<visible>StringCompare(ListItem.Property(typ), bool)</visible>
+							<visible>String.IsEqual(ListItem.Property(typ), bool)</visible>
 							<control type="image">
 								<left>725</left>
 								<top>3</top>
@@ -134,7 +134,7 @@
 								<height>30</height>
 								<aspectratio>keep</aspectratio>
 								<texture border="5">radiobutton-nofocus.png</texture>
-								<visible>StringCompare(ListItem.Property(value), 0) | StringCompare(ListItem.Property(value), false) | IsEmpty(ListItem.Property(value))</visible>
+								<visible>String.IsEqual(ListItem.Property(value), 0) | String.IsEqual(ListItem.Property(value), false) | String.IsEmpty(ListItem.Property(value))</visible>
 							</control>
 							<control type="image">
 								<left>725</left>
@@ -143,14 +143,14 @@
 								<height>30</height>
 								<aspectratio>keep</aspectratio>
 								<texture border="5">radiobutton-focus.png</texture>
-								<visible>StringCompare(ListItem.Property(value), 1) | StringCompare(ListItem.Property(value), true)</visible>
+								<visible>String.IsEqual(ListItem.Property(value), 1) | String.IsEqual(ListItem.Property(value), true)</visible>
 							</control>
-						</control>		
+						</control>
 					</control>
 				</itemlayout>
-				<focusedlayout height="40" width="780">	
+				<focusedlayout height="40" width="780">
 					<control type="group">
-						<visible>StringCompare(ListItem.Property(typ), separator)</visible>
+						<visible>String.IsEqual(ListItem.Property(typ), separator)</visible>
 						<control type="image">
 							<left>0</left>
 							<top>36</top>
@@ -169,7 +169,7 @@
 						</control>
 					</control>
 					<control type="group">
-						<visible>!StringCompare(ListItem.Property(typ), separator)</visible>	
+						<visible>!String.IsEqual(ListItem.Property(typ), separator)</visible>
 						<control type="image">
 							<left>0</left>
 							<top>0</top>
@@ -177,14 +177,14 @@
 							<height>40</height>
 							<texture border="5">MenuItemFO.png</texture>
 							<animation effect="fade" end="50" time="10">Unfocus</animation>
-						</control>	
+						</control>
 						<control type="image">
 							<left>400</left>
 							<top>4</top>
 							<width>370</width>
 							<height>33</height>
 							<texture border="0,0,14,0">MediaItemDetailBG.png</texture>
-						</control>								
+						</control>
 						<control type="label">
 							<left>20</left>
 							<top>0</top>
@@ -194,9 +194,9 @@
 							<align>left</align>
 							<aligny>center</aligny>
 							<label>$INFO[ListItem.Label]</label>
-						</control>						
+						</control>
 						<control type="group">
-							<visible>StringCompare(ListItem.Property(typ), list)</visible>
+							<visible>String.IsEqual(ListItem.Property(typ), list)</visible>
 							<control type="label">
 								<left>390</left>
 								<top>0</top>
@@ -206,10 +206,10 @@
 								<align>right</align>
 								<aligny>center</aligny>
 								<label>$INFO[ListItem.Property(value)]</label>
-							</control>	
-						</control>		
+							</control>
+						</control>
 						<control type="group">
-							<visible>StringCompare(ListItem.Property(typ), bool)</visible>
+							<visible>String.IsEqual(ListItem.Property(typ), bool)</visible>
 							<control type="image">
 								<left>725</left>
 								<top>3</top>
@@ -217,7 +217,7 @@
 								<height>30</height>
 								<aspectratio>keep</aspectratio>
 								<texture border="5">radiobutton-nofocus.png</texture>
-								<visible>StringCompare(ListItem.Property(value), 0) | StringCompare(ListItem.Property(value),false) | IsEmpty(ListItem.Property(value))</visible>
+								<visible>String.IsEqual(ListItem.Property(value), 0) | String.IsEqual(ListItem.Property(value),false) | String.IsEmpty(ListItem.Property(value))</visible>
 							</control>
 							<control type="image">
 								<left>725</left>
@@ -226,10 +226,10 @@
 								<height>30</height>
 								<aspectratio>keep</aspectratio>
 								<texture border="5">radiobutton-focus.png</texture>
-								<visible>StringCompare(ListItem.Property(value), 1) | StringCompare(ListItem.Property(value),true)</visible>
+								<visible>String.IsEqual(ListItem.Property(value), 1) | String.IsEqual(ListItem.Property(value),true)</visible>
 							</control>
-						</control>		
-					</control>	
+						</control>
+					</control>
 				</focusedlayout>
 			</control>
             <control type="image">
@@ -238,7 +238,7 @@
                 <width>786</width>
                 <height>165</height>
                 <texture border="15">floor.png</texture>
-            </control> 	
+            </control>
            <control type="button" id="1020">
                 <left>577</left>
                 <top>490</top>
@@ -252,7 +252,7 @@
                 <ondown>1001</ondown>
                 <onleft>1000</onleft>
                 <onright>1001</onright>
-            </control>			
+            </control>
            <control type="button" id="1001">
                 <left>577</left>
                 <top>540</top>
@@ -285,7 +285,7 @@
 					<textcolor>blue</textcolor>
 					<align>left</align>
 					<label>$ADDON[script.config.vdr 32048]:</label>
-				</control>	
+				</control>
 				<control type="label">
 					<left>30</left>
 					<top>500</top>
@@ -321,7 +321,7 @@
 					<textcolor>white</textcolor>
 					<align>left</align>
 					<label></label>
-				</control>	
+				</control>
 				<control type="label" id="1004">
 					<left>160</left>
 					<top>500</top>
@@ -339,7 +339,7 @@
 					<textcolor>white</textcolor>
 					<align>left</align>
 					<label>$INFO[Container(1001).Property(status)]</label>
-				</control>				
+				</control>
 				<control type="progress" id="1006">
 					<left>30</left>
 					<top>555</top>
@@ -347,8 +347,8 @@
 					<height>12</height>
 					<info>$INFO[Container(1001).Property(InfoText)]</info>
 					<visible>true</visible>
-				</control>		
-			</control>		
-        </control>		
+				</control>
+			</control>
+        </control>
     </controls>
 </window>
