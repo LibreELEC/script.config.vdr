@@ -31,13 +31,12 @@ import os
 import sys
 import xbmc
 import json
-import urllib
-import urllib2
+import urllib.request, urllib.parse, urllib.error
 import xbmcgui
 import xbmcaddon
 import xbmcplugin
 import subprocess
-import httplib
+import http.client
 
 XBMC_USER_HOME = os.environ.get('XBMC_USER_HOME', '/storage/.kodi')
 
@@ -50,7 +49,7 @@ __usrcfg__ = '%s/userdata/addon_data/%s/latest.cfg' % (XBMC_USER_HOME, __scripti
 
 try:
     __vrdaddon__ = xbmcaddon.Addon(id=__vdrscriptid__)
-except Exception, e:
+except Exception as e:
     xbmc.executebuiltin('Notification(VDR Configuration, VDR Plugin not found, 5000, "")')
     quit()
 
@@ -153,7 +152,7 @@ class cWinMain(xbmcgui.WindowXMLDialog):
     def onInit(self):
         try:
             self.lObjState = self.fncGetStatus()
-        except Exception, e:
+        except Exception as e:
             xbmc.executebuiltin('Notification(VDR Configuration, Unable to connect to VDR restfull API, 5000, "")')
             self.close()
             quit()
@@ -218,19 +217,19 @@ class cWinMain(xbmcgui.WindowXMLDialog):
         pass
 
     def fncGetUrl(self, lStrUrl):
-        lObjRequest = urllib2.Request(lStrUrl)
-        lObjResponse = urllib2.urlopen(lObjRequest)
+        lObjRequest = urllib.request.Request(lStrUrl)
+        lObjResponse = urllib.request.urlopen(lObjRequest)
         return lObjResponse.read()
 
     def fncPostUrl(self, lStrUrl, lDicData):
-        lStrData = urllib.urlencode(lDicData)
-        lObjRequest = urllib2.Request(lStrUrl, lStrData)
-        lObjResponse = urllib2.urlopen(lObjRequest)
+        lStrData = urllib.parse.urlencode(lDicData)
+        lObjRequest = urllib.request.Request(lStrUrl, lStrData.encode())
+        lObjResponse = urllib.request.urlopen(lObjRequest)
         return lObjResponse.read()
 
     def fncPutUrl(self, lStrUrl, lStrData):
-        lObjOpener = urllib2.build_opener(urllib2.HTTPHandler)
-        lObjRequest = urllib2.Request(lStrUrl, lStrData)
+        lObjOpener = urllib.request.build_opener(urllib.request.HTTPHandler)
+        lObjRequest = urllib.request.Request(lStrUrl, lStrData.encode())
         lObjRequest.get_method = lambda: 'PUT'
         lStrResult = lObjOpener.open(lObjRequest)
         return lStrResult.read()
@@ -435,7 +434,7 @@ class cWinMain(xbmcgui.WindowXMLDialog):
                         self.getControl(1002).setLabel(lObjState['currentDevice'])
                         self.getControl(1004).setLabel(str(lObjState['numChannels']))
                         self.getControl(1005).setLabel(str(lObjState['newChannels']))
-                    except Exception, e:
+                    except Exception as e:
                         pass
                 elif self.lIntInProgress == 0 or self.lIntInProgress == 3:
                     self.lIntInProgress = 1

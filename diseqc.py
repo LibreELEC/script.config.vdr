@@ -32,13 +32,12 @@ import sys
 import math
 import xbmc
 import json
-import urllib
-import urllib2
+import urllib.request, urllib.parse, urllib.error
 import xbmcgui
 import xbmcaddon
 import xbmcplugin
 
-import httplib
+import http.client
 import rotor_calc
 
 XBMC_USER_HOME = os.environ.get('XBMC_USER_HOME', '/storage/.kodi')
@@ -52,7 +51,7 @@ __usrcfg__ = '%s/userdata/addon_data/%s/latest.cfg' % (XBMC_USER_HOME, __scripti
 
 try:
     __vrdaddon__ = xbmcaddon.Addon(id=__vdrscriptid__)
-except Exception, e:
+except Exception as e:
     xbmc.executebuiltin('Notification(VDR Configuration, VDR Plugin not found, 5000, "")')
     quit()
 
@@ -710,7 +709,7 @@ class cWinDiSEqC(xbmcgui.WindowXMLDialog):
                         if len(self.lDicDiSEqCLNBs[lStrConfig]['commands']) == 0:
                             lIntCmdEntry = 1
                         else:
-                            lIntCmdEntry = max(int(x) for x in self.lDicDiSEqCLNBs[lStrConfig]['commands'].keys()) + 1
+                            lIntCmdEntry = max(int(x) for x in list(self.lDicDiSEqCLNBs[lStrConfig]['commands'].keys())) + 1
 
                     self.lDicDiSEqCLNBs[lStrConfig]['commands'][str(lIntCmdEntry)] = {'name':32148, 'value':str(lStrSwitchPort),
                         'mode':lStrSwitchVersion, 'cmd':lStrCommand}
@@ -725,7 +724,7 @@ class cWinDiSEqC(xbmcgui.WindowXMLDialog):
                     if len(self.lDicDiSEqCLNBs[lStrConfig]['commands']) == 0:
                         lIntCmdEntry = 1
                     else:
-                        lIntCmdEntry = max(int(x) for x in self.lDicDiSEqCLNBs[lStrConfig]['commands'].keys()) + 1
+                        lIntCmdEntry = max(int(x) for x in list(self.lDicDiSEqCLNBs[lStrConfig]['commands'].keys())) + 1
 
                 lStrCommand = "W50 [E0 31 60] W150 [E0 31 6B %02X]" % int(lIntReturn)
                 self.lDicDiSEqCLNBs[lStrConfig]['commands'][str(lIntCmdEntry)] = {'name':32149, 'value':str(lIntReturn),
@@ -759,7 +758,7 @@ class cWinDiSEqC(xbmcgui.WindowXMLDialog):
                             if len(self.lDicDiSEqCLNBs[lStrConfig]['commands']) == 0:
                                 lIntCmdEntry = 1
                             else:
-                                lIntCmdEntry = max(int(x) for x in self.lDicDiSEqCLNBs[lStrConfig]['commands'].keys()) + 1
+                                lIntCmdEntry = max(int(x) for x in list(self.lDicDiSEqCLNBs[lStrConfig]['commands'].keys())) + 1
 
                         self.lDicDiSEqCLNBs[lStrConfig]['commands'][str(lIntCmdEntry)] = {'name':32149, 'value':'USALS',
                             'mode':"DiSEqC-1.2", 'cmd':lStrCommand}

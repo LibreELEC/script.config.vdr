@@ -39,7 +39,7 @@ __cwd__ = __addon__.getAddonInfo('path')
 
 try:
     __vrdaddon__ = xbmcaddon.Addon(id=__vdrscriptid__)
-except Exception, e:
+except Exception as e:
     xbmc.executebuiltin('Notification(VDR Configuration, VDR Plugin not found, 5000, "")')
     quit()
 
