@@ -53,7 +53,7 @@ try:
 except Exception, e:
     xbmc.executebuiltin('Notification(VDR Configuration, VDR Plugin not found, 5000, "")')
     quit()
-    
+
 gWinMain = None
 
 def _(code):
@@ -61,14 +61,14 @@ def _(code):
         return __addon__.getLocalizedString(code)
     else:
         return code
-        
+
 class cWinMain(xbmcgui.WindowXMLDialog):
 
     lIntMenuDepth = 0
     lStrDiSEqCMode = "Disabled"
     lDicDiSEqCLNBs = {}
     lStrParentMenuEntry = None
-    
+
     lBolClearScan = "0"
     lObjState = None
     lDicConfig = None
@@ -76,9 +76,9 @@ class cWinMain(xbmcgui.WindowXMLDialog):
     lDicSatellites = None
     lStrWirbelscanHost = __addon__.getSetting('HOST')
     lStrWirbelscanPort = __addon__.getSetting('PORT')
-    lIntInProgress = 0   
+    lIntInProgress = 0
     lIntSelectedItem = 0
-    
+
     lDicSetup = {
         "loglevel":{
             "name":32024,
@@ -93,7 +93,7 @@ class cWinMain(xbmcgui.WindowXMLDialog):
             "values":{"0":32033, "1":32034, "2":32035},
             "order":2,
             "visible":0
-        },    
+        },
         "type":{
             "name":32025,
             "entry":"DVB_Type",
@@ -108,7 +108,7 @@ class cWinMain(xbmcgui.WindowXMLDialog):
             "type":[0],
             "order":4,
             "visible":1
-        },  
+        },
         "c_inversion":{
             "name":32054,
             "entry":"DVBC_Inversion",
@@ -116,18 +116,18 @@ class cWinMain(xbmcgui.WindowXMLDialog):
             "type":[1],
             "order":5,
             "visible":1
-        },          
+        },
         "c_rate":{
             "name":32027,
             "entry":"DVBC_Symbolrate",
-            "values":{"0":32016, "1":"69000", "2":"68750", "3":"61110", "4":"62500", 
-                      "5":"67900", "6":"68110", "7":"59000", "8":"50000", "9":"34500", 
-                      "10":"40000", "11":"69500", "12":"70000", "13":"69520", "14":"51560", 
+            "values":{"0":32016, "1":"69000", "2":"68750", "3":"61110", "4":"62500",
+                      "5":"67900", "6":"68110", "7":"59000", "8":"50000", "9":"34500",
+                      "10":"40000", "11":"69500", "12":"70000", "13":"69520", "14":"51560",
                       "15":"54830"},
             "type":[1],
             "order":6,
             "visible":1
-        }, 
+        },
         "c_quam":{
             "name":32028,
             "entry":"DVBC_QAM",
@@ -135,7 +135,7 @@ class cWinMain(xbmcgui.WindowXMLDialog):
             "type":[1],
             "order":7,
             "visible":1
-        },  
+        },
         "a_type":{
             "name":32029,
             "entry":"ATSC_type",
@@ -143,22 +143,22 @@ class cWinMain(xbmcgui.WindowXMLDialog):
             "type":[5],
             "order":8,
             "visible":1
-        },          
+        },
     }
-    
+
     def __init__(self, *args, **kwargs):
         xbmc.executebuiltin('dialog.close(10140)')
         pass
-        
+
     def onInit(self):
         try:
             self.lObjState = self.fncGetStatus()
         except Exception, e:
             xbmc.executebuiltin('Notification(VDR Configuration, Unable to connect to VDR restfull API, 5000, "")')
             self.close()
-            quit()        
+            quit()
         self.fncLoadDefaults()
-        self.fncConfigRootMenu()   
+        self.fncConfigRootMenu()
         self.setFocusId(1000)
         if 'status' in self.lObjState:
             if self.lObjState['status'] == 1:
@@ -170,14 +170,14 @@ class cWinMain(xbmcgui.WindowXMLDialog):
                 self.getControl(1001).setLabel(_(32044))
                 self.getControl(1010).setVisible(False)
                 self.lIntInProgress = 0
-                
+
     def onAction(self, lIntActionId):
         lIntFocusId = self.getFocusId()
         if lIntFocusId != 1000:
             if lIntActionId in (9,10,216,247,257,275,61467,92,61448):
                 self.lIntInProgress = 0
                 self.visible = False
-                self.close()    
+                self.close()
         else:
             self.setFocusId(1000)
             if lIntActionId in (9,10,216,247,257,275,61467,92,61448):
@@ -187,17 +187,17 @@ class cWinMain(xbmcgui.WindowXMLDialog):
                     self.close()
                 elif self.lIntMenuDepth == 1:
                     self.fncLoadConfig()
-                    self.fncConfigRootMenu()   
-                    self.getControl(1000).selectItem(self.lIntSelectedItem)            
+                    self.fncConfigRootMenu()
+                    self.getControl(1000).selectItem(self.lIntSelectedItem)
                 else:
                     eval(self.lStrParentMenuEntry)
-                    self.getControl(1000).selectItem(self.lIntSelectedItem)     
-                        
+                    self.getControl(1000).selectItem(self.lIntSelectedItem)
+
     def onClick(self, controlID):
         if controlID == 1000:
             lObjItm = self.getControl(1000).getSelectedItem()
             getattr(self, lObjItm.getProperty('action'))(
-                lObjItm.getProperty('config'), 
+                lObjItm.getProperty('config'),
                 lObjItm.getProperty('value'),
                 lObjItm.getProperty('typ')
             )
@@ -209,7 +209,7 @@ class cWinMain(xbmcgui.WindowXMLDialog):
         if controlID == 1020:
             self.lIntInProgress = 0
             self.visible = False
-            self.close()            
+            self.close()
 
     def onUnload(self):
         pass
@@ -219,13 +219,13 @@ class cWinMain(xbmcgui.WindowXMLDialog):
 
     def fncGetUrl(self, lStrUrl):
         lObjRequest = urllib2.Request(lStrUrl)
-        lObjResponse = urllib2.urlopen(lObjRequest) 
+        lObjResponse = urllib2.urlopen(lObjRequest)
         return lObjResponse.read()
 
     def fncPostUrl(self, lStrUrl, lDicData):
         lStrData = urllib.urlencode(lDicData)
         lObjRequest = urllib2.Request(lStrUrl, lStrData)
-        lObjResponse = urllib2.urlopen(lObjRequest) 
+        lObjResponse = urllib2.urlopen(lObjRequest)
         return lObjResponse.read()
 
     def fncPutUrl(self, lStrUrl, lStrData):
@@ -234,7 +234,7 @@ class cWinMain(xbmcgui.WindowXMLDialog):
         lObjRequest.get_method = lambda: 'PUT'
         lStrResult = lObjOpener.open(lObjRequest)
         return lStrResult.read()
-        
+
     def fncParameterToDictionarry(self, lStrParameters):
         lObjDictionary = {}
         if lStrParameters:
@@ -246,37 +246,37 @@ class cWinMain(xbmcgui.WindowXMLDialog):
         return lObjDictionary
 
     def fncGetStatus(self):
-        lStrJson = self.fncGetUrl("http://%s:%s/wirbelscan/getStatus.json" % 
+        lStrJson = self.fncGetUrl("http://%s:%s/wirbelscan/getStatus.json" %
             (self.lStrWirbelscanHost, self.lStrWirbelscanPort))
         return json.loads(lStrJson)
-        
+
     def fncLoadConfig(self):
-        lStrJson = self.fncGetUrl("http://%s:%s/wirbelscan/getSetup.json" % 
+        lStrJson = self.fncGetUrl("http://%s:%s/wirbelscan/getSetup.json" %
             (self.lStrWirbelscanHost, self.lStrWirbelscanPort))
         self.lDicConfig = json.loads(lStrJson)
-        
+
     def fncLoadDefaults(self):
-        lStrJson = self.fncGetUrl("http://%s:%s/wirbelscan/countries.json" % 
+        lStrJson = self.fncGetUrl("http://%s:%s/wirbelscan/countries.json" %
             (self.lStrWirbelscanHost, self.lStrWirbelscanPort))
         self.lDicCountries = json.loads(lStrJson)
-        lStrJson = self.fncGetUrl("http://%s:%s/wirbelscan/satellites.json" % 
+        lStrJson = self.fncGetUrl("http://%s:%s/wirbelscan/satellites.json" %
             (self.lStrWirbelscanHost, self.lStrWirbelscanPort))
         self.lDicSatellites = json.loads(lStrJson)
         self.fncLoadConfig()
 
     def fncAddListItem(self, lStrLabel, lStrEntry, lStrValue, lStrAction, lStrTyp):
         lLstItem = xbmcgui.ListItem(label=lStrLabel)
-        lLstItem.setProperty("config", lStrEntry)        
+        lLstItem.setProperty("config", lStrEntry)
         lLstItem.setProperty("value", lStrValue)
         lLstItem.setProperty("action", lStrAction)
         lLstItem.setProperty("typ", lStrTyp)
-        self.getControl(1000).addItem(lLstItem)  
-    
+        self.getControl(1000).addItem(lLstItem)
+
     def fncAddSeparator(self, lStrLabel):
         lLstItem = xbmcgui.ListItem(label=lStrLabel)
-        lLstItem.setProperty("typ", "separator")        
-        self.getControl(1000).addItem(lLstItem)  
-        
+        lLstItem.setProperty("typ", "separator")
+        self.getControl(1000).addItem(lLstItem)
+
     def fncConfigRootMenu(self):
         self.lIntMenuDepth = 0
         self.getControl(1000).reset()
@@ -285,93 +285,93 @@ class cWinMain(xbmcgui.WindowXMLDialog):
             lStrOption = str(self.lDicConfig[lStrEntry['entry']])
             if (not 'type' in lStrEntry or self.lDicConfig['DVB_Type'] in lStrEntry['type']) \
                 and lStrEntry['visible'] == 1:
-                self.fncAddListItem(_(lStrEntry['name']), lItmKey, 
+                self.fncAddListItem(_(lStrEntry['name']), lItmKey,
                     _(lStrEntry['values'][lStrOption]), "fncConfigSubMenu", "list")
         if self.lDicConfig['DVB_Type'] != 2:
             for lObjCountry in self.lDicCountries["countries"]:
                 if lObjCountry['id'] == self.lDicConfig['CountryId']:
-                    self.fncAddListItem(_(32030), "CountryId", 
+                    self.fncAddListItem(_(32030), "CountryId",
                         lObjCountry['fullName'], "fncCountrySubMenu", "list")
                     break
         if self.lDicConfig['DVB_Type'] == 2:
             for lObjSattelite in self.lDicSatellites["satellites"]:
                 if lObjSattelite['id'] == self.lDicConfig['SatId']:
-                    self.fncAddListItem(_(32031), "SatId", 
+                    self.fncAddListItem(_(32031), "SatId",
                         lObjSattelite['fullName'], "fncSatSubMenu", "list")
                     break
 
         self.fncAddListItem(_(32146), "clear", self.lBolClearScan, "fncSetClearScan", "bool")
-        if self.lDicConfig['scanflags'] & 1 == 1: 
+        if self.lDicConfig['scanflags'] & 1 == 1:
             lStrFlagState = _(32042)
             lIntFlagState = "1"
         else:
             lStrFlagState = _(32043)
             lIntFlagState = "0"
         self.fncAddListItem(_(32037), "0", lIntFlagState, "fncSetConfig", "bool")
-        if self.lDicConfig['scanflags'] & 2 == 2: 
+        if self.lDicConfig['scanflags'] & 2 == 2:
             lStrFlagState = _(32042)
             lIntFlagState = "1"
         else:
-            lStrFlagState = _(32043)  
+            lStrFlagState = _(32043)
             lIntFlagState = "0"
         self.fncAddListItem(_(32038), "1", lIntFlagState, "fncSetConfig", "bool")
-        if self.lDicConfig['scanflags'] & 4 == 4: 
+        if self.lDicConfig['scanflags'] & 4 == 4:
             lStrFlagState = _(32042)
             lIntFlagState = "1"
         else:
             lStrFlagState = _(32043)
             lIntFlagState = "0"
         self.fncAddListItem(_(32039), "2", lIntFlagState, "fncSetConfig", "bool")
-        if self.lDicConfig['scanflags'] & 8 == 8: 
+        if self.lDicConfig['scanflags'] & 8 == 8:
             lStrFlagState = _(32042)
             lIntFlagState = "1"
         else:
             lStrFlagState = _(32043)
             lIntFlagState = "0"
         self.fncAddListItem(_(32040), "3", lIntFlagState, "fncSetConfig", "bool")
-        
+
     def fncConfigSubMenu(self, lStrConfig, lStrValue, lStrTyp):
         self.lIntSelectedItem = self.getControl(1000).getSelectedPosition()
         lArrValues = []
         lArrOptions = []
-        for lStrOption in sorted(self.lDicSetup[lStrConfig]['values'], 
+        for lStrOption in sorted(self.lDicSetup[lStrConfig]['values'],
             key=lambda x: self.lDicSetup[lStrConfig]['values'][x]):
             lArrValues.append(lStrOption)
             lArrOptions.append(_(self.lDicSetup[lStrConfig]['values'][lStrOption]))
         lObjSelectDialog = xbmcgui.Dialog()
-        lIntResult = lObjSelectDialog.select("", lArrOptions)    
+        lIntResult = lObjSelectDialog.select("", lArrOptions)
         if lIntResult >= 0:
             self.fncSetConfig(self.lDicSetup[lStrConfig]['entry'], str(lArrValues[lIntResult]), "")
-            
+
     def fncCountrySubMenu(self, lStrConfig, lStrValue, lStrTyp):
-        self.lIntSelectedItem = self.getControl(1000).getSelectedPosition()        
+        self.lIntSelectedItem = self.getControl(1000).getSelectedPosition()
         lArrValues = []
         lArrCountrys = []
         for lObjCountry in self.lDicCountries["countries"]:
             lArrValues.append(lObjCountry['id'])
             lArrCountrys.append(lObjCountry['fullName'])
         lObjSelectDialog = xbmcgui.Dialog()
-        lIntResult = lObjSelectDialog.select(_(32031), lArrCountrys)    
+        lIntResult = lObjSelectDialog.select(_(32031), lArrCountrys)
         if lIntResult >= 0:
             self.fncSetConfig("CountryId", str(lArrValues[lIntResult]), "")
-        
+
     def fncSatSubMenu(self, lStrConfig, lStrValue, lStrTyp):
-        self.lIntSelectedItem = self.getControl(1000).getSelectedPosition()    
-        lArrValues = []        
+        self.lIntSelectedItem = self.getControl(1000).getSelectedPosition()
+        lArrValues = []
         lArrSattelites = []
         for lObjSat in self.lDicSatellites["satellites"]:
-            lArrValues.append(lObjSat['id'])        
+            lArrValues.append(lObjSat['id'])
             lArrSattelites.append(lObjSat['fullName'])
         lObjSelectDialog = xbmcgui.Dialog()
-        lIntResult = lObjSelectDialog.select(_(32031), lArrSattelites)    
+        lIntResult = lObjSelectDialog.select(_(32031), lArrSattelites)
         if lIntResult >= 0:
             self.fncSetConfig("SatId", str(lArrValues[lIntResult]), "")
-            
+
     def fncDiSEqCSubMenu(self, lStrConfig, lStrValue, lStrTyp):
         gWinDiSEqC = cWinDiSEqC('WinDiSEqC_window.xml', __cwd__, 'Default')
         gWinDiSEqC.doModal()
-            
-    def fncSetConfig(self, lStrEntry, lStrValue, lStrTyp):       
+
+    def fncSetConfig(self, lStrEntry, lStrValue, lStrTyp):
         if lStrTyp == "bool" and lStrValue == "0":
             self.lIntSelectedItem = self.getControl(1000).getSelectedPosition()
             lStrValue = self.lDicConfig['scanflags'] | (1<<int(lStrEntry))
@@ -381,46 +381,46 @@ class cWinMain(xbmcgui.WindowXMLDialog):
             lStrValue = self.lDicConfig['scanflags'] & ~(1<<int(lStrEntry))
             lStrEntry = "scanflags"
         lStrSendData = "{\"%s\":%s}" % (lStrEntry, lStrValue)
-        lStrResult = self.fncPutUrl("http://%s:%s/wirbelscan/setSetup.json" % 
+        lStrResult = self.fncPutUrl("http://%s:%s/wirbelscan/setSetup.json" %
             (self.lStrWirbelscanHost, self.lStrWirbelscanPort), lStrSendData)
-        self.fncPostUrl("http://%s:%s/wirbelscan/doCommand.json" % 
+        self.fncPostUrl("http://%s:%s/wirbelscan/doCommand.json" %
             (self.lStrWirbelscanHost, self.lStrWirbelscanPort), {"command":2})
         self.fncLoadConfig()
-        self.fncConfigRootMenu()   
+        self.fncConfigRootMenu()
         self.setFocusId(1000)
         self.getControl(1000).selectItem(self.lIntSelectedItem)
-    
-    def fncSetClearScan(self, lStrEntry, lStrValue, lStrTyp):      
+
+    def fncSetClearScan(self, lStrEntry, lStrValue, lStrTyp):
         self.lIntSelectedItem = self.getControl(1000).getSelectedPosition()
         if lStrValue == "0":
             self.lBolClearScan = "1"
         else:
-            self.lBolClearScan = "0" 
-        self.fncConfigRootMenu()   
+            self.lBolClearScan = "0"
+        self.fncConfigRootMenu()
         self.setFocusId(1000)
         self.getControl(1000).selectItem(self.lIntSelectedItem)
-        
+
     def fncStartScan(self):
         lIntRetry = 0
         lIntPercent = 0
         self.lIntInProgress = 1
         self.getControl(1001).setLabel(_(32045))
-        self.getControl(1010).setVisible(True)  
+        self.getControl(1010).setVisible(True)
 
         if self.lBolClearScan == "1":
             xbmc.executebuiltin('ActivateWindow(busydialog)')
             lStrFile = '%s/userdata/addon_data/%s/config/channels.conf' % (XBMC_USER_HOME, __vdrscriptid__)
             if os.path.exists(lStrFile):
-                os.rename(lStrFile, lStrFile.replace('.conf', '.bck'))                      
+                os.rename(lStrFile, lStrFile.replace('.conf', '.bck'))
             lObjProcess = subprocess.Popen("systemctl restart service.multimedia.vdr-addon", shell=True)
             lObjProcess.wait()
             xbmc.executebuiltin('Notification(VDR Configuration, Unable to connect to VDR restfull API, 5000, "")')
             xbmc.sleep(5000)
             xbmc.executebuiltin('Dialog.Close(busydialog)')
-            self.fncPostUrl("http://%s:%s/wirbelscan/doCommand.json" % 
-                (self.lStrWirbelscanHost, self.lStrWirbelscanPort), {"command":0})                
-            
-        self.fncPostUrl("http://%s:%s/wirbelscan/doCommand.json" % 
+            self.fncPostUrl("http://%s:%s/wirbelscan/doCommand.json" %
+                (self.lStrWirbelscanHost, self.lStrWirbelscanPort), {"command":0})
+
+        self.fncPostUrl("http://%s:%s/wirbelscan/doCommand.json" %
             (self.lStrWirbelscanHost, self.lStrWirbelscanPort), {"command":0})
         while self.lIntInProgress == 1 and lIntRetry < 5:
             lObjState = self.fncGetStatus()
@@ -440,23 +440,23 @@ class cWinMain(xbmcgui.WindowXMLDialog):
                 elif self.lIntInProgress == 0 or self.lIntInProgress == 3:
                     self.lIntInProgress = 1
                     lIntRetry+=1
-                    self.fncPostUrl("http://%s:%s/wirbelscan/doCommand.json" % 
+                    self.fncPostUrl("http://%s:%s/wirbelscan/doCommand.json" %
                         (self.lStrWirbelscanHost, self.lStrWirbelscanPort), {"command":0})
                     xbmc.sleep(1000)
-                    
+
                 else:
                     self.lIntInProgress = 0
                     lIntPercent = 100
 
-            self.getControl(1006).setPercent(lIntPercent)                
+            self.getControl(1006).setPercent(lIntPercent)
             xbmc.sleep(1000)
 
         self.getControl(1006).setPercent(100)
         self.getControl(1001).setLabel(_(32044))
-        
+
     def fncStopScan(self):
-        self.fncPostUrl("http://%s:%s/wirbelscan/doCommand.json" % 
+        self.fncPostUrl("http://%s:%s/wirbelscan/doCommand.json" %
             (self.lStrWirbelscanHost, self.lStrWirbelscanPort), {"command":1})
-        
+
 gWinMain = cWinMain('window.xml', __cwd__, 'Default')
 gWinMain.doModal()
